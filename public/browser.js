@@ -8,7 +8,7 @@ document.addEventListener("click", (e) => {
         })
         .catch(()=>{
             console.log("something wrong.")
-        })
+        }) 
         }
     }
 })
