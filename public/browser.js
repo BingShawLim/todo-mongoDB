@@ -1,14 +1,27 @@
 document.addEventListener("click", (e) => {
+    //delete
+    if (e.target.classList.contains("delete-me")) {
+        if(confirm("Delete this item?")){
+            axios.post('/delete-item', {id: e.target.getAttribute("data-id")})
+            .then(()=>{
+                e.target.parentElement.parentElement.remove()
+            })
+            .catch(()=>{
+                console.log("something wrong.")
+            }) 
+        }
+    }
+    //update
     if (e.target.classList.contains("edit-me")) {
         let userInput = prompt( "Enter the update text.", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML)
         if(userInput) {
             axios.post('/update-item', {text: userInput, id: e.target.getAttribute("data-id")})
-        .then(()=>{
-            e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = userInput
-        })
-        .catch(()=>{
-            console.log("something wrong.")
-        }) 
+            .then(()=>{
+                e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = userInput
+            })
+            .catch(()=>{
+                console.log("something wrong.")
+            }) 
         }
     }
 })
