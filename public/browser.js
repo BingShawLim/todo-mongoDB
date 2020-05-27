@@ -7,19 +7,26 @@ function itemTemplate(item) {
     </div>
   </li>`
 }
+
+let ourHTML = items.map(item => {
+    return itemTemplate(item)
+}).join('')
+document.getElementById("item-list").insertAdjacentHTML("beforeend", ourHTML)
+
 //create
-let createFeild = document.getElementById("create-field")
-document.getElementById("create-form").addEventListener("submit", (e)=>{
+let createField = document.getElementById("create-field")
+
+document.getElementById("create-form").addEventListener("submit", (e) => {
     e.preventDefault()
-    axios.post('/create-item', {text: createFeild.value})
-            .then((response)=>{
-                document.getElementById("item-list").insertAdjacentHTML("beforeend",itemTemplate(response.data))
-                createFeild.value = ""
-                createFeild.focus()
-            .catch(()=>{
-                console.log("something wrong.")
-            }) 
-})
+    axios.post('/create-item', {text: createField.value}).then((response) => {
+      // Create the HTML for a new item
+      document.getElementById("item-list").insertAdjacentHTML("beforeend", itemTemplate(response.data))
+      createField.value = ""
+      createField.focus()
+    }).catch(() => {
+      console.log("Please try again later.")
+    })
+  })
 
 document.addEventListener("click", (e) => {
     //delete
