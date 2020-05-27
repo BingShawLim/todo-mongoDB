@@ -2,7 +2,11 @@
 a simple project to learning MongoDB and ExpressJS.
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![Example screenshot](./todo-mongodb.jpeg)
+
+## Login Info
+username: omg
+password: idontcare
 
 ## Technologies
 * Javascript
