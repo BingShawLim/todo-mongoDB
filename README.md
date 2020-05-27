@@ -1,5 +1,5 @@
 # todo-mongoDB
-a simple project to learning MongoDB and ExpressJS.
+a basic practice project to learning MongoDB and ExpressJS.
 https://todo-app-learn-express-mongodb.herokuapp.com
 
 ## Screenshots
